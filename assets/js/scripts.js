@@ -5,6 +5,9 @@
 		/*------------------- PRELOADER ------------------*/
 		$('body').addClass('page-loaded');
 	});
+	setTimeout(function(){
+		$('body').addClass('page-loaded');
+	}, 1000);
 
 	/* ---------------------- MENU --------------------- */
 	$( 'body' ).on('click', '.nav-btn',  function( event ){
@@ -322,24 +325,27 @@
 	
 		function initializeClock(id, endtime) {
 			var clock = document.getElementById(id);
-			var daysSpan = clock.querySelector('.days');
-			var hoursSpan = clock.querySelector('.hours');
-			var minutesSpan = clock.querySelector('.minutes');
-			var secondsSpan = clock.querySelector('.seconds');
-	
+			if (!clock) return;
+			var daysSpan = clock.querySelector('.days') || clock.querySelector('#days');
+			var hoursSpan = clock.querySelector('.hours') || clock.querySelector('#hours');
+			var minutesSpan = clock.querySelector('.minutes') || clock.querySelector('#minutes');
+			var secondsSpan = clock.querySelector('.seconds') || clock.querySelector('#seconds');
+
+			if (!daysSpan || !hoursSpan || !minutesSpan || !secondsSpan) return;
+
 			function updateClock() {
 				var t = getTimeRemaining(endtime);
-	
+
 				daysSpan.innerHTML = t.days;
 				hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
 				minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
 				secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-	
+
 				if (t.total <= 0) {
 					clearInterval(timeinterval);
 				}
 			}
-	
+
 			updateClock();
 			var timeinterval = setInterval(updateClock, 1000);
 		}

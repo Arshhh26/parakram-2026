@@ -1,92 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap');
 
+/* =====================================================
+   FOOTER (Matching reference styling)
+===================================================== */
 .footer {
   width: 100%;
   box-sizing: border-box;
   position: relative;
   left: 0;
   bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 60px;
-  padding-bottom: 2rem;
-  color: #fff;
-  background: #0b0e14 linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, #0b0e14 100%);
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(30px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+  background-color: #202020;
+  color: #ffffff;
+  font-family: 'Tektur', sans-serif;
+  padding-top: 65px;
+  padding-bottom: 35px;
 }
 
 .footer .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 25px;
   box-sizing: border-box;
 }
 
+/* Top logo row */
 .footer-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
+  width: 100%;
+  margin-bottom: 45px;
 }
 
-.logo {
-  max-width: 100%;
-  height: 60px;
-  width: auto;
+.footer-top a {
+  display: inline-flex;
+  align-items: center;
+  position: static;
+}
+
+.footer-top .logo {
+  position: static !important;
+  height: 52px !important;
+  width: auto !important;
+  max-width: 180px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.logo:hover {
-  transform: scale(1.05) rotate(2deg);
+.footer-top .logo:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
+/* Content columns */
 .footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 45px;
+  margin-bottom: 50px;
 }
 
 .footer-section {
   flex: 1;
   min-width: 220px;
-  opacity: 1;
 }
 
 .footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 0.5rem;
+  font-family: 'Tektur', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+  letter-spacing: 0.5px;
 }
 
-.footer-section h3::after {
+/* Teal accent underline only under 'Connect With Us' as in reference image */
+.footer-section:last-child h3::after {
   content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 40px;
+  display: block;
+  width: 38px;
   height: 2px;
-  background-color: #75dab4;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.footer-section:hover h3::after {
-  transform: scaleX(1);
+  background-color: #56cfa3;
+  margin-top: 8px;
 }
 
 .footer-section ul {
@@ -96,190 +94,150 @@
 }
 
 .footer-section ul li {
-  margin-bottom: 0.5rem;
-  transition: transform 0.2s ease, color 0.2s ease;
+  margin-bottom: 8px;
+  line-height: 1.6;
 }
 
-.footer-section ul li:hover {
-  transform: translateX(5px);
-  color: #75dab4;
-}
-
-.footer-section a {
+.footer-section ul li a {
+  font-family: 'Tektur', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #d1d5db;
   text-decoration: none;
-  color: inherit;
+  display: inline-block;
+  transition: color 0.2s ease;
+  line-height: 1.8;
 }
 
+.footer-section ul li a:hover {
+  color: #ffffff;
+}
+
+/* Social Icons */
 .social-icons {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 18px;
+  align-items: center;
 }
 
 .social-icon {
   color: #ffffff;
-  font-size: 1.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 21px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .social-icon:hover {
-  transform: scale(1.2) rotate(15deg);
+  opacity: 0.8;
+  transform: translateY(-2px);
+  color: #ffffff;
 }
 
+/* Bottom bar */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 2rem;
-  text-align: center;
-  opacity: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer-bottom nav {
-  margin-bottom: 1rem;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  margin: 0;
 }
 
-.footer-bottom a {
+.footer-bottom nav a {
+  font-family: 'Tektur', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
   color: #a0aec0;
   text-decoration: none;
-  margin: 0;
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
+  transition: color 0.2s ease;
 }
 
-.footer-bottom a:hover {
+.footer-bottom nav a:hover {
   color: #ffffff;
-  transform: translateY(-2px);
 }
 
-.copyright {
-  font-size: 0.9rem;
+.footer-bottom .copyright {
+  font-family: 'Tektur', sans-serif;
+  font-size: 13px;
   color: #718096;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .footer {
-      padding-top: 40px;
-      padding-bottom: 1.5rem;
-  }
-
-  .footer .container {
-      padding: 0 1rem;
+    padding-top: 40px;
+    padding-bottom: 25px;
   }
 
   .footer-top {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 2rem;
+    margin-bottom: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .logo {
-      height: 50px;
-      max-width: 220px;
+  .footer-top .logo {
+    height: 40px !important;
+    max-width: 130px;
   }
 
   .footer-content {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      gap: 1.75rem;
-      margin-bottom: 2rem;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 35px;
   }
 
   .footer-section {
-      text-align: center;
-      min-width: 100%;
-      width: 100%;
+    min-width: 100%;
   }
 
   .footer-section h3 {
-      font-size: 1.1rem;
-      text-align: center;
-  }
-
-  .footer-section h3::after {
-      left: 50%;
-      transform: translateX(-50%) scaleX(0);
-  }
-
-  .footer-section:hover h3::after {
-      transform: translateX(-50%) scaleX(1);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
   }
 
   .footer-section ul li {
-      margin-bottom: 0.65rem;
+    margin-bottom: 8px;
   }
 
   .footer-section ul li a {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 0.95rem;
-      line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.8;
   }
 
   .social-icons {
-      justify-content: center;
-      gap: 1rem;
+    gap: 16px;
+    margin-top: 14px;
   }
 
   .social-icon {
-      padding: 10px;
-      font-size: 1.4rem;
+    font-size: 22px;
   }
 
   .footer-bottom {
-      padding: 1.25rem 0.5rem 0.5rem;
-      text-align: center;
-  }
-
-  .footer-bottom nav {
-      margin-bottom: 0.75rem;
-      justify-content: center;
-      gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding-top: 22px;
   }
 
   .footer-bottom nav a {
-      padding: 8px 14px;
-      font-size: 0.95rem;
-      font-weight: 600;
+    font-size: 13px;
   }
 
-  .copyright {
-      font-size: 0.85rem;
-      line-height: 1.5;
+  .footer-bottom .copyright {
+    font-size: 12.5px;
   }
-}
-
-
-
-.footer-section .social-icons a:hover {
-  color: #000; /* General hover color, which will be overridden */
-}
-
-.footer-section .social-icons a[aria-label="Facebook"]:hover {
-  color: #3b5998; /* Facebook blue */
-}
-
-.footer-section .social-icons a[aria-label="Instagram"]:hover {
-  color: #e1306c; /* Instagram pink */
-}
-
-.footer-section .social-icons a[aria-label="Twitter"]:hover {
-  color: #1da1f2; /* Twitter blue */
-}
-
-.footer-section .social-icons a[aria-label="LinkedIn"]:hover {
-  color: #0077b5; /* LinkedIn blue */
-}
-
-.footer-section .social-icons a[aria-label="YouTube"]:hover {
-  color: #ff0000; /* YouTube red */
 }

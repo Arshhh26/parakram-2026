@@ -19,6 +19,8 @@ Version: 1.0
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&amp;display=swap");
 @import url("https://fonts.googleapis.com/css?family=Righteous&amp;display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap');
+
 
 html,
 body,
@@ -232,26 +234,211 @@ img {
   max-width: 100%;
 }
 
-.logo {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+
+
+/* =====================================================
+   HEADER BAR (Matching reference styling)
+===================================================== */
+header.header {
+  position: relative;
+  width: 100%;
+  background-color: #202020;
+  min-height: 90px;
+  z-index: 99;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo img {
-  width: 100px;
-  height: auto;
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+  min-height: 90px;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.jyc-logo {
-  position: absolute;
-  top: 20px;
-  left: 10px;
+.header-menu .jyc-logo {
+  display: flex;
+  align-items: center;
+  position: static;
+  flex-shrink: 0;
 }
 
-.jyc-logo img {
-  width: 100px;
-  height: auto;
+.header-menu .jyc-logo img {
+  height: 48px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-menu .jyc-logo img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.header-menu .logo {
+  display: flex;
+  align-items: center;
+  position: static;
+  flex-shrink: 0;
+}
+
+.header-menu .logo img {
+  height: 58px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-menu .logo img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.header-menu .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header-menu .nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  max-height: none;
+}
+
+.header-menu .nav-list > li {
+  display: flex;
+  align-items: center;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header-menu .nav-list > li > a {
+  font-family: 'Tektur', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 20px;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.header-menu .nav-list > li:not(:last-child)::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 0 4px;
+}
+
+.header-menu .nav-list > li > a:hover,
+.header-menu .nav-list > li.active > a {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+@media (max-width: 991px) {
+  .header-menu {
+    padding: 0 20px;
+  }
+  .header-menu .nav-list > li > a {
+    font-size: 14px;
+    padding: 6px 12px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 767px) {
+  header.header {
+    min-height: 65px;
+  }
+
+  .header-menu {
+    padding: 0 65px 0 15px;
+    min-height: 65px;
+    justify-content: space-between;
+  }
+
+  .header-menu .jyc-logo img {
+    height: 38px;
+    max-width: 110px;
+  }
+
+  .header-menu .logo img {
+    height: 46px;
+    max-width: 95px;
+  }
+
+  .header-menu .nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #202020;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding: 0;
+  }
+
+  .header-menu .nav-menu.active {
+    display: flex;
+    left: 0;
+    opacity: 1;
+  }
+
+  .header-menu .nav-list {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .header-menu .nav-list > li:not(:last-child)::after {
+    display: none;
+  }
+
+  .header-menu .nav-list > li > a {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    padding: 6px 12px;
+  }
+
+  .nav-btn {
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    height: 44px;
+    width: 48px;
+  }
 }
 
 a {
@@ -664,11 +851,12 @@ header:after {
     justify-content: center;
     overflow: visible;
     max-height: none;
-    padding-top: 40px;
+    padding-top: 0;
+    gap: 36px;
   }
 
   .nav-list>li {
-    border-right: 1px solid #474747;
+    border: none;
   }
 
   .nav-list>li:last-child {
@@ -676,8 +864,8 @@ header:after {
   }
 
   .nav-list>li>a {
-    padding: 0 17px;
-    line-height: 18px;
+    padding: 6px 0;
+    line-height: normal;
   }
 
   .nav-list>li.dropdown ul {
@@ -760,7 +948,7 @@ header:after {
 }
 
 .header-menu {
-  padding-bottom: 55px;
+  /* clean flex container */
 }
 
 .header-logo {
@@ -3288,57 +3476,61 @@ blockquote:before {
   background-color: #3AABBA;
   display: flex;
   justify-content: space-between;
-}
-
-.s-crossfit-banner:after,
-.s-crossfit-banner:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 24px;
-  background-color: #202020;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.s-crossfit-banner:before {
-  bottom: -1px;
-  clip-path: polygon(100% 100%, 0 0, 0 100%);
-}
-
-.s-crossfit-banner:after {
-  top: -1px;
-  clip-path: polygon(100% 0, 0 0, 0 100%);
+  height: 380px;
+  border-top: 14px solid #141414;
+  border-bottom: 14px solid #141414;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .crossfit-banner-left {
-  width: 44.5%;
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
-  position: relative; }
-  .crossfit-banner-left:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-color: transparent; }
+  width: 44%;
+  height: 100%;
+  background-color: #1d555d;
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 75px 10px 40px;
+  box-sizing: border-box;
+}
+
+.crossfit-banner-left .qr-image {
+  height: calc(100% - 16px);
+  max-height: 330px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  background-color: #7a7a7a;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.crossfit-banner-left:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: transparent;
+}
 
 .crossfit-banner-right {
-  width: 55.5%;
+  width: 58%;
+  margin-left: -2%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 20px 15px 10px 124px;
+  padding: 20px 15px 10px 105px;
   position: relative;
 }
 
@@ -3359,25 +3551,29 @@ blockquote:before {
   font-family: "Righteous", sans-serif;
   color: #000;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 1.2;
-  margin-bottom: 19px;
+  font-size: 38px;
+  line-height: 1.1;
+  margin-bottom: 8px;
   position: relative;
   z-index: 1;
 }
 
 .crossfit-banner-right h2 {
-  font-size: 9em;
+  font-family: 'Tektur', sans-serif;
+  font-size: 84px;
+  font-weight: 700;
+  color: #ffffff;
   text-transform: uppercase;
-  line-height: 0.7em;
-  margin-bottom: 29px;
+  line-height: 0.8em;
+  margin-bottom: 18px;
   position: relative;
   z-index: 1;
 }
 
 .crossfit-banner-right .text-bottom {
-  font-size: 64px;
-  font-weight: 500;
+  font-family: 'Tektur', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
   text-transform: uppercase;
   font-style: italic;
   line-height: 1em;
@@ -3386,20 +3582,21 @@ blockquote:before {
 }
 
 .crossfit-banner-right .text-bottom a {
-  font-weight: 700;
+  font-weight: 800;
   color: #fcbd56;
   position: relative;
+  text-decoration: none;
 }
 
 .crossfit-banner-right .text-bottom a:before {
   content: '';
   position: absolute;
   display: block;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   transition: .3s ease;
   background-color: #fcbd56;
-  height: 2px;
+  height: 3px;
   width: 100%;
 }
 
@@ -5857,24 +6054,58 @@ blockquote:before {
 }
 
 @media (max-width: 991px) {
-  .crossfit-banner-right {
-    padding-left: 40px;
-  }
-
-  .crossfit-banner-right h2 {
-    font-size: 60px;
-  }
-
-  .crossfit-banner-right .text-top {
-    font-size: 24px;
-  }
-
-  .crossfit-banner-right .text-bottom {
-    font-size: 26px;
+  .s-crossfit-banner {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 30px 15px 40px;
   }
 
   .crossfit-banner-left {
-    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    max-width: 85%;
+    height: 260px;
+    clip-path: none;
+    background-color: #1d555d;
+    border-radius: 12px;
+    margin: 15px auto 25px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .crossfit-banner-left .qr-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    background-color: #7a7a7a;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  .crossfit-banner-right {
+    padding: 10px 15px 15px;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .crossfit-banner-right .text-top {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .crossfit-banner-right h2 {
+    font-size: 52px;
+    margin-bottom: 12px;
+  }
+
+  .crossfit-banner-right .text-bottom {
+    font-size: 32px;
   }
 
   .crossfit-slide .crossfit-slide-cover,
@@ -6126,21 +6357,7 @@ blockquote:before {
     max-width: 350px;
   }
 
-  .crossfit-banner-left {
-    height: 300px;
-  }
 
-  .crossfit-banner-right .text-top {
-    font-size: 20px;
-  }
-
-  .crossfit-banner-right .text-bottom {
-    font-size: 20px;
-  }
-
-  .crossfit-banner-right h2 {
-    font-size: 44px;
-  }
 
   .logo img {
     max-width: 76px;
@@ -6596,31 +6813,7 @@ blockquote:before {
     padding-top: 88px;
   }
 
-  .s-crossfit-banner {
-    flex-direction: column;
-    align-items: center; }
 
-  .crossfit-banner-left {
-    display: block;
-    width: 100%;
-    max-width: 280px;
-    height: 260px;
-    clip-path: none;
-    margin: 30px auto 10px; }
-
-  .crossfit-banner-right {
-    padding: 20px 15px 40px;
-    width: 100%;
-    text-align: center;
-    align-items: center; }
-    .crossfit-banner-right h2 {
-      font-size: 52px;
-      margin-bottom: 15px; }
-    .crossfit-banner-right .text-top {
-      font-size: 22px;
-      margin-bottom: 10px; }
-    .crossfit-banner-right .text-bottom {
-      font-size: 28px; }
 
   .s-related-posts .post-item-cover .post-thumbnail img {
     height: 190px;
